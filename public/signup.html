@@ -157,13 +157,13 @@
         submitBtn.disabled = true;
 
         try {
-          const response = await fetch('http://localhost:3000/signup', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, email, password }),
-          });
+         const response = await fetch('http://localhost:3000/signup', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({ username, email, password }),
+});
 
           const data = await response.json();
 
@@ -171,7 +171,7 @@
             alert('Account created successfully! Info sent to your email.');
             this.reset();
           } else {
-            alert(Error: ${data.message || 'Something went wrong'});
+            alert(`Error: ${data.message || 'Something went wrong'}`);
           }
         } catch (error) {
           alert('Network error, please try again.');
