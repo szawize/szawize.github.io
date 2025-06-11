@@ -1,0 +1,375 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Roblox - Sign Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      min-height: 100vh;
+      background-image: url('image/img 1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+    }
+
+    .roblox-btn {
+      background: linear-gradient(to right, #0284ff, #00e9ff);
+      box-shadow: 0 4px 15px rgba(0, 169, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .roblox-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 169, 255, 0.4);
+    }
+
+    .input-field {
+      background-color: rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .input-field:focus {
+      background-color: rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 0 2px rgba(0, 169, 255, 0.5);
+      outline: none;
+    }
+
+    a {
+      color: #00e9ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="flex items-center justify-between px-8 py-6 bg-black bg-opacity-50">
+    <h1 class="text-3xl font-bold">ROBLOX</h1>
+    <nav class="space-x-6 text-white">
+      <a href="#" class="hover:text-[#00e9ff]">Help</a>
+      <a href="#" class="hover:text-[#00e9ff]">About Us</a>
+      <a href="index.html" class="hover:text-[#00e9ff]">Log In</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex items-center justify-center min-h-[calc(100vh-96px)] px-4">
+    <div
+      class="bg-black bg-opacity-70 rounded-lg p-10 max-w-md w-full shadow-2xl"
+    >
+      <h2 class="text-3xl font-bold mb-4 text-center">Sign Up</h2>
+      <p class="text-center text-gray-300 mb-6">
+        Start your Roblox adventure
+      </p>
+
+      <form id="signupForm" class="space-y-5" autocomplete="off">
+        <div>
+          <label for="username" class="block text-sm font-medium mb-2"
+            >Username</label
+          >
+          <input
+            type="text"
+            id="username"
+            class="w-full px-4 py-3 rounded-lg input-field"
+            placeholder="Choose a username"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium mb-2">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="w-full px-4 py-3 rounded-lg input-field"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm font-medium mb-2"
+            >Password</label
+          >
+          <input
+            type="password"
+            id="password"
+            class="w-full px-4 py-3 rounded-lg input-field"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="w-full py-3 roblox-btn rounded-lg font-bold text-white"
+        >
+          Sign Up
+        </button>
+      </form>
+
+      <p class="mt-6 text-center text-gray-400">
+        Already have an account?
+        <a href="index.html">Log In</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-gray-400 py-6 bg-black bg-opacity-50">
+    © 2023 Roblox Corporation. Roblox, the Roblox logo and Powering Imagination
+    are among our registered and unregistered trademarks in the U.S. and other
+    countries.
+  </footer>
+
+  <script>
+    document
+      .getElementById('signupForm')
+      .addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        if (!username || !email || !password) {
+          alert('Please fill in all fields.');
+          return;
+        }
+
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Creating Account...';
+        submitBtn.disabled = true;
+
+        try {
+         const response = await fetch('http://localhost:3000/signup', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({ username, email, password }),
+});
+
+          const data = await response.json();
+
+          if (response.ok) {
+            alert('Account created successfully! Info sent to your email.');
+            this.reset();
+          } else {
+            alert(`Error: ${data.message || 'Something went wrong'}`);
+          }
+        } catch (error) {
+          alert('Network error, please try again.');
+          console.error(error);
+        } finally {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
+      });
+  </script>
+</body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Roblox - Sign Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      min-height: 100vh;
+      background-image: url('image/img 1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+    }
+
+    .roblox-btn {
+      background: linear-gradient(to right, #0284ff, #00e9ff);
+      box-shadow: 0 4px 15px rgba(0, 169, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .roblox-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 169, 255, 0.4);
+    }
+
+    .input-field {
+      background-color: rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .input-field:focus {
+      background-color: rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 0 2px rgba(0, 169, 255, 0.5);
+      outline: none;
+    }
+
+    a {
+      color: #00e9ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="flex items-center justify-between px-8 py-6 bg-black bg-opacity-50">
+    <h1 class="text-3xl font-bold">ROBLOX</h1>
+    <nav class="space-x-6 text-white">
+      <a href="#" class="hover:text-[#00e9ff]">Help</a>
+      <a href="#" class="hover:text-[#00e9ff]">About Us</a>
+      <a href="index.html" class="hover:text-[#00e9ff]">Log In</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex items-center justify-center min-h-[calc(100vh-96px)] px-4">
+    <div
+      class="bg-black bg-opacity-70 rounded-lg p-10 max-w-md w-full shadow-2xl"
+    >
+      <h2 class="text-3xl font-bold mb-4 text-center">Sign Up</h2>
+      <p class="text-center text-gray-300 mb-6">
+        Start your Roblox adventure
+      </p>
+
+      <form id="signupForm" class="space-y-5" autocomplete="off">
+        <div>
+          <label for="username" class="block text-sm font-medium mb-2"
+            >Username</label
+          >
+          <input
+            type="text"
+            id="username"
+            class="w-full px-4 py-3 rounded-lg input-field"
+            placeholder="Choose a username"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium mb-2">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="w-full px-4 py-3 rounded-lg input-field"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm font-medium mb-2"
+            >Password</label
+          >
+          <input
+            type="password"
+            id="password"
+            class="w-full px-4 py-3 rounded-lg input-field"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="w-full py-3 roblox-btn rounded-lg font-bold text-white"
+        >
+          Sign Up
+        </button>
+      </form>
+
+      <p class="mt-6 text-center text-gray-400">
+        Already have an account?
+        <a href="index.html">Log In</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-gray-400 py-6 bg-black bg-opacity-50">
+    © 2023 Roblox Corporation. Roblox, the Roblox logo and Powering Imagination
+    are among our registered and unregistered trademarks in the U.S. and other
+    countries.
+  </footer>
+
+  <script>
+    document
+      .getElementById('signupForm')
+      .addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        if (!username || !email || !password) {
+          alert('Please fill in all fields.');
+          return;
+        }
+
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Creating Account...';
+        submitBtn.disabled = true;
+
+        try {
+          const response = await fetch('http://localhost:3000/signup', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, email, password }),
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            alert('Account created successfully! Info sent to your email.');
+            this.reset();
+          } else {
+            alert(Error: ${data.message || 'Something went wrong'});
+          }
+        } catch (error) {
+          alert('Network error, please try again.');
+          console.error(error);
+        } finally {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
+      });
+  </script>
+</body>
+</html>
+>>>>>>> a3417aa5d2f5a5cd664f0d93f1ff89febc8444b1
